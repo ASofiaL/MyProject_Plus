@@ -73,4 +73,14 @@ body {
   .earthmorning {
     width: 100%;
   }
-  
+  .link {
+    color: rgb(34, 10, 34);
+    text-align: center;
+  }
+  .opencode{
+    color:rgb(82, 26, 82);
+    text-decoration: underline;
+  }
+  .opencode:hover{
+    color:rgb(82, 26, 82);
+  }
