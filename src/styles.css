@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  }
+  .block1 {
+    margin-top: 20px;
+    border-style: groove;
+    border-color: blueviolet;
+    border-radius: 20px;
+  }
+  .search-engine {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+  #celsius {
+    color: darkblue;
+  }
+  #celsius:hover {
+    color: darkblue;
+    cursor: pointer;
+  }
+  #farenheit {
+    color: rgb(53, 0, 139);
+  }
+  #farenheit:hover {
+    color: rgb(53, 0, 139);
+    cursor: pointer;
+  }
+  .currentplace {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+  .cityname {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  .block2 {
+    margin-top: 50px;
+    border-style: dotted;
+    border-color: teal;
+    border-radius: 20px;
+  }
+  .followingdays {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .weather {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+  }
+  .c1 {
+    border-color: none;
+    padding: 10px;
+    transition: all 200ms ease;
+  }
+  .c1:hover {
+    border: 1px solid white;
+    box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+    border-radius: 2px;
+  }
+  .earthmorning {
+    width: 100%;
+  }
+  
