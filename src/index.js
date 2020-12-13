@@ -115,6 +115,11 @@ function showWeather(response) {
   let windDis = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
   windDis.innerHTML = `Wind Speed: ${wind * 3.6} km/h`;
+
+  let iconDis = document.querySelector("#icon");
+  iconDis.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  iconDis.setAttribute("alt", response.data.weather[0].description);
 }
 
 function retrievePosition(position) {
