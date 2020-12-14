@@ -57,16 +57,20 @@ body {
     text-align:center;
     margin-left: auto;
     color: blueviolet;
+    cursor: pointer;
   }
   .cls:hover{
+    color: blueviolet;
     cursor: pointer;
   }
   .fht{
     text-align:center;
     margin-right: auto;
     color: blueviolet;
+    cursor: pointer;
   }
   .fht:hover{
+    color: blueviolet;
     cursor: pointer;
   }
   .weather {

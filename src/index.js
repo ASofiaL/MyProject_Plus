@@ -213,7 +213,6 @@ function addDays(date, days) {
 }
 
 function imageHour() {
-  debugger;
   let image = document.querySelector("#earth");
 
   if (currentHours >= 6 && currentHours <= 19) {
