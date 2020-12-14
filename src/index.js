@@ -114,14 +114,14 @@ function displayForecast(response) {
 
     function forecastCelsius() {
       let blockTemp = document.querySelector(`#tempt${index}`);
-      blockTemp.innerHTML = `<div class="weather" id="tempt${index}"><strong>${(Math.round(response.data.list[index].main.temp_max))}º</strong>${(Math.round(response.data.list[index].main.temp_min))}º</div>`;
+      blockTemp.innerHTML = `<strong>${(Math.round(response.data.list[index].main.temp_max))}º</strong>${(Math.round(response.data.list[index].main.temp_min))}º`;
     }
     let tempCls = document.querySelector(`#cls${index}`);
     tempCls.addEventListener("click", forecastCelsius);
 
     function forecastFarenheit() {
       let fhTemp = document.querySelector(`#tempt${index}`);
-      fhTemp.innerHTML = `<div class="weather" id="tempt${index}"><strong>${((Math.round(response.data.list[index].main.temp_max)) * 9) / 5 + 32}º</strong>${(((Math.round(response.data.list[index].main.temp_min)) * 9) / 5 + 32)}º</div>`;
+      fhTemp.innerHTML = `<strong>${((Math.round(response.data.list[index].main.temp_max)) * 9) / 5 + 32}º</strong>${(((Math.round(response.data.list[index].main.temp_min)) * 9) / 5 + 32)}º`;
     }
     let tempFht = document.querySelector(`#fht${index}`);
     tempFht.addEventListener("click", forecastFarenheit);
