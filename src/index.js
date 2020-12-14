@@ -79,6 +79,8 @@ function formatHours(timestamp) {
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = null;
+  forecastElement.innerHTML = '';
+
   for (let index = 0; index < 8; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML +=
