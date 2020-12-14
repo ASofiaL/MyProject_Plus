@@ -62,6 +62,7 @@ function setHtmlDate(schedule, displayDay) {
   tomorrowDisplay.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}`;
 }
 
+
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#inputcity").value;
@@ -72,6 +73,9 @@ function searchCity(event) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let searchForm = document.querySelector("#cityform");
