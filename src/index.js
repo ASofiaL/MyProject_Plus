@@ -172,7 +172,7 @@ function showWeather(response) {
   let tempDis = document.querySelector("#temperature");
   let temperature = Math.round(response.data.main.temp);
   currentTemp = temperature;
-  tempDis.innerHTML = `${temperature}°`;
+  tempDis.innerHTML = `${temperature}`;
   let tempCity = document.querySelector(".cityname");
   tempCity.innerHTML = `${response.data.name}`;
 
