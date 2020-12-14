@@ -218,9 +218,9 @@ function imageHour() {
   let image = document.querySelector("#earth");
 
   if (currentHours >= 6 && currentHours <= 19) {
-    image.setAttribute("src", "images/earthmorning.jpg");
-  } if (currentHours <= 5 && currentHours >= 20) {
-    image.setAttribute("src", "images/earthnight.jpg");
+  image.setAttribute("src", "images/earthmorning.jpg");
+  } else {
+  image.setAttribute("src", "images/earthnight.jpg");
   }
 }
 imageHour();
