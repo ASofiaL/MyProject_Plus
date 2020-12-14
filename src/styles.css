@@ -53,6 +53,22 @@ body {
     padding: 10px;
     text-align: center;
   }
+  .cls{
+    text-align:center;
+    margin-left: auto;
+    color: blueviolet;
+  }
+  .cls:hover{
+    cursor: pointer;
+  }
+  .fht{
+    text-align:center;
+    margin-right: auto;
+    color: blueviolet;
+  }
+  .fht:hover{
+    cursor: pointer;
+  }
   .weather {
     width: 100%;
     text-align: center;

@@ -62,6 +62,72 @@ function setHtmlDate(schedule, displayDay) {
   tomorrowDisplay.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}`;
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = null;
+  for (let index = 0; index < 8; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML +=
+      ` <div class="col-2 offset-1">
+  <div class="c1">
+    <strong> ${formatHours(forecast.dt * 1000)} </strong>
+    <div class="row">
+      <div class="weather">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="weather" id="tempt${index}"><strong>${Math.round(forecast.main.temp_max)}º</strong>${Math.round(forecast.main.temp_min)}º</div>
+      <div class="cls" id="cls${index}"> ºC </div> |<div class="fht" id="fht${index}">ºF</div>
+      </div>
+    <div class="row">
+      <div class="weather" id="pressr">Pressure:${Math.round(forecast.main.pressure)}hPa</div>
+    </div>
+    <div class="row">
+      <div class="weather" id="humidt">Humidity:${Math.round(forecast.main.humidity)}%</div>
+    </div>
+    <div class="row">
+      <div class="weather" id="windy2">Wind:${Math.round(forecast.wind.speed) * 3.6}km/h</div>
+    </div>
+  </div>
+</div>`;
+  }
+
+  
+  for (let index = 0; index < 8; index++) {
+
+    function forecastCelsius() {
+      let blockTemp = document.querySelector(`#tempt${index}`);
+      blockTemp.innerHTML = `<div class="weather" id="tempt${index}"><strong>${(Math.round(response.data.list[index].main.temp_max))}º</strong>${(Math.round(response.data.list[index].main.temp_min))}º</div>`;
+    }
+    let tempCls = document.querySelector(`#cls${index}`);
+    tempCls.addEventListener("click", forecastCelsius);
+
+    function forecastFarenheit() {
+      let fhTemp = document.querySelector(`#tempt${index}`);
+      fhTemp.innerHTML = `<div class="weather" id="tempt${index}"><strong>${((Math.round(response.data.list[index].main.temp_max)) * 9) / 5 + 32}º</strong>${(((Math.round(response.data.list[index].main.temp_min)) * 9) / 5 + 32)}º</div>`;
+    }
+    let tempFht = document.querySelector(`#fht${index}`);
+    tempFht.addEventListener("click", forecastFarenheit);
+
+  }
+}
+
+
 
 function searchCity(event) {
   event.preventDefault();
@@ -132,9 +198,13 @@ function retrievePosition(position) {
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
+
 
 function addDays(date, days) {
   let result = new Date(date);
@@ -142,13 +212,14 @@ function addDays(date, days) {
   return result;
 }
 
-let tomorrow = addDays(currentTime, 1);
-setHtmlDate(tomorrow, "#tomorrow");
-let nextDay = addDays(currentTime, 2);
-setHtmlDate(nextDay, "#nextday");
-let nextDay2 = addDays(currentTime, 3);
-setHtmlDate(nextDay2, "#nextday2");
-let nextDay3 = addDays(currentTime, 4);
-setHtmlDate(nextDay3, "#nextday3");
-let nextDay4 = addDays(currentTime, 5);
-setHtmlDate(nextDay4, "#nextday4");
+function imageHour() {
+  debugger;
+  let image = document.querySelector("#earth");
+
+  if (currentHours >= 6 && currentHours <= 19) {
+    image.setAttribute("src", "images/earthmorning.jpg");
+  } if (currentHours <= 5 && currentHours >= 20) {
+    image.setAttribute("src", "images/earthnight.jpg");
+  }
+}
+imageHour();
