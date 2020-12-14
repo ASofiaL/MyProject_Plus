@@ -205,12 +205,7 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function buttonCurrent (){
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-}
-let currentCity = document.querySelector(`#ccity`);
-currentCity.addEventListener("click", buttonCurrent);
-
+navigator.geolocation.getCurrentPosition(retrievePosition);
 
 
 function addDays(date, days) {
